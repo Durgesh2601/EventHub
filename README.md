@@ -7,10 +7,6 @@ This project is the frontend application for EventHub, a lightweight solution fo
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
-- [Folder Structure](#folder-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
