@@ -28,10 +28,11 @@ git clone https://github.com/your-username/eventhub-frontend.git
 
 2. Install dependencies:
 
-```npm install
-# or
-yarn
-````
+```npm install```
+
+or
+
+```yarn```
 
 3. Start the Project
 
