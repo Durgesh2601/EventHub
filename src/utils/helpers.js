@@ -3,9 +3,9 @@ import { EVENT_STATUSES } from "../constants";
 const getFilteredEventsByKey = (events, key) => {
   const currentDate = getCurrentDate();
   switch (key) {
-    case EVENT_STATUSES.UPCOMING.value:
+    case EVENT_STATUSES.UPCOMING.key:
       return events?.filter((event) => event?.dateTime?.[0] > currentDate);
-    case EVENT_STATUSES.PAST.value:
+    case EVENT_STATUSES.PAST.key:
       return events?.filter((event) => event?.dateTime?.[1] <= currentDate);
     default:
       return events;

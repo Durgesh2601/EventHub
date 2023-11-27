@@ -10,8 +10,8 @@ const EventListingPage = () => {
   const { events, removeEvent } = useEventContext();
   const { UPCOMING, PAST } = EVENT_STATUSES;
 
-  const upcomingEvents = getFilteredEventsByKey(events, UPCOMING.value);
-  const pastEvents = getFilteredEventsByKey(events, PAST.value);
+  const upcomingEvents = getFilteredEventsByKey(events, UPCOMING.key);
+  const pastEvents = getFilteredEventsByKey(events, PAST.key);
 
   const handleDeleteEvent = (event) => {
     removeEvent(event?.id);
