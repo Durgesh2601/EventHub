@@ -16,7 +16,7 @@ const EventCard = ({ event, onDeleteEvent }) => {
         title={
           <Row justify="space-between" align="middle">
             <Col>
-              <Title level={5}>
+              <Title level={5} ellipsis>
                 <CalendarOutlined />{" "}
                 {`${getFormattedDate(event.dateTime[0])} to ${getFormattedDate(
                   event.dateTime[1]
