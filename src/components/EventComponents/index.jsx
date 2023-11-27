@@ -35,7 +35,11 @@ const EventForm = ({ onFinish, onFinishFailed }) => {
                   },
                 ]}
               >
-                <RangePicker showTime style={{ width: "100%" }} />
+                <RangePicker
+                  showTime={{ format: "HH:mm" }}
+                  format="YYYY-MM-DD HH:mm"
+                  style={{ width: "100%" }}
+                />
               </Form.Item>
 
               <Form.Item label="Description" name="description">
@@ -61,7 +65,6 @@ const EventForm = ({ onFinish, onFinishFailed }) => {
                 alt="img"
                 preview={false}
                 className="placeholder-img"
-                height={"90%"}
               />
             </Col>
           </Row>

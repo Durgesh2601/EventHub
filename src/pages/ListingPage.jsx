@@ -4,15 +4,20 @@ import { Link } from "react-router-dom";
 import { EVENT_STATUSES } from "../constants";
 import { getFilteredEventsByKey } from "../utils/helpers";
 import { useEventContext } from "../context/EventContext";
+import EventCard from "../components/EventComponents/EventCard";
 
 const EventListingPage = () => {
-  const { events } = useEventContext();
+  const { events, removeEvent } = useEventContext();
 
   const upcomingEvents = getFilteredEventsByKey(
     events,
     EVENT_STATUSES.UPCOMING
   );
   const pastEvents = getFilteredEventsByKey(events, EVENT_STATUSES.PAST);
+
+  const handleDeleteEvent = (event) => {
+    removeEvent(event?.id);
+  };
 
   const createEventButton = (
     <Link to="/create-event">
@@ -28,12 +33,7 @@ const EventListingPage = () => {
         <List
           dataSource={upcomingEvents}
           renderItem={(event) => (
-            <List.Item>
-              <List.Item.Meta
-                title={event.title}
-                description={`Date: ${event.date}`}
-              />
-            </List.Item>
+            <EventCard event={event} onDeleteEvent={handleDeleteEvent} />
           )}
         />
       ),
@@ -45,12 +45,7 @@ const EventListingPage = () => {
         <List
           dataSource={pastEvents}
           renderItem={(event) => (
-            <List.Item>
-              <List.Item.Meta
-                title={event.title}
-                description={`Date: ${event.date}`}
-              />
-            </List.Item>
+            <EventCard event={event} onDeleteEvent={handleDeleteEvent} />
           )}
         />
       ),
@@ -58,12 +53,24 @@ const EventListingPage = () => {
   ];
 
   return (
-    <div>
+    <div
+      style={{
+        overflowY: "auto",
+        maxHeight: "calc(100vh - 64px)",
+        marginTop: "5rem",
+      }}
+    >
       <PageHeader
         title="Event Listing"
         subTitle="Explore and manage your events"
       />
-      <div style={{ padding: "20px" }}>
+      <div
+        style={{
+          padding: "20px",
+          overflowY: "auto",
+          maxHeight: "calc(100vh - 64px)",
+        }}
+      >
         <Tabs
           defaultActiveKey="1"
           items={tabItems}

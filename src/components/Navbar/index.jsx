@@ -6,7 +6,7 @@ const { Title } = Typography;
 const Navbar = () => {
   return (
     <Layout>
-      <Header>
+      <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
         <Title level={4}>EventHub</Title>
       </Header>
     </Layout>
