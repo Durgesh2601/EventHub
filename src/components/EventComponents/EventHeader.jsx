@@ -18,7 +18,7 @@ const EventHeader = () => {
         <Col>
           <Title level={3}>Create Event</Title>
         </Col>
-        <Col span={2}>
+        <Col xs={24} sm={6} md={6} lg={4}>
           <Button
             icon={<ArrowLeftOutlined />}
             style={{ width: "100%" }}

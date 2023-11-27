@@ -16,7 +16,7 @@ const EventForm = ({ onFinish, onFinishFailed }) => {
           style={{ width: "100%" }}
         >
           <Row justify="space-between">
-            <Col span={10}>
+            <Col xs={23} sm={23} md={10}>
               <Form.Item
                 label="Event Name"
                 name="eventName"
@@ -59,7 +59,7 @@ const EventForm = ({ onFinish, onFinishFailed }) => {
                 </Button>
               </Form.Item>
             </Col>
-            <Col span={11}>
+            <Col xs={0} sm={0} md={11}>
               <Image
                 src={PlaceHolderImg}
                 alt="img"
