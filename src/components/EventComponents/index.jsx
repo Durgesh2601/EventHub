@@ -53,7 +53,7 @@ const EventForm = ({ onFinish, onFinishFailed }) => {
                 <Button
                   type="primary"
                   htmlType="submit"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", marginTop: "1rem" }}
                 >
                   Create Event
                 </Button>
@@ -65,6 +65,7 @@ const EventForm = ({ onFinish, onFinishFailed }) => {
                 alt="img"
                 preview={false}
                 className="placeholder-img"
+                height={'95%'}
               />
             </Col>
           </Row>
