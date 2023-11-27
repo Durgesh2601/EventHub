@@ -1,6 +1,7 @@
 import { Col, Row, Typography, Button, Divider } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import { ROUTES } from "../../constants";
 
 const { Title } = Typography;
 
@@ -8,7 +9,7 @@ const EventHeader = () => {
   const navigate = useNavigate();
 
   const handleGoBack = () => {
-    navigate(`/`);
+    navigate(ROUTES.LISTING_PAGE);
   };
 
   return (

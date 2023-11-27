@@ -45,8 +45,13 @@ const EventCard = ({ event, onDeleteEvent }) => {
         }
         style={{ width: "100%" }}
       >
-        <Title level={5}>{event.eventName}</Title>
-        <Text>{event?.description}</Text>
+        <Title level={5}>{event?.eventName}</Title>
+        {event?.location && (
+          <Row>
+            <Text strong>Location : {event?.location}</Text>
+          </Row>
+        )}
+        {event?.description && <Text>{event?.description}</Text>}
       </Card>
     </List.Item>
   );

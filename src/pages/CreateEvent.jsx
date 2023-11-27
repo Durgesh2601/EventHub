@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from "uuid";
 import EventForm from "../components/EventComponents";
 import { useEventContext } from "../context/EventContext";
+import { ACTION_MSGS, ROUTES } from "../constants";
 
 const CreateEvent = () => {
   const navigate = useNavigate();
@@ -15,12 +16,13 @@ const CreateEvent = () => {
       id: uuid(),
     };
     addEvent(newEvent);
-    message.success("Event created successfully!");
-    navigate(`/`);
+    message.success(ACTION_MSGS.ADD_EVENT);
+    navigate(ROUTES.LISTING_PAGE);
   };
 
   const handleFinishFailed = (errorInfo) => {
     console.error("Failed:", errorInfo);
+    message.error(ACTION_MSGS.ERROR_MSG);
   };
 
   return (

@@ -51,8 +51,14 @@ const MOCK_EVENTS = [
 ];
 
 const EVENT_STATUSES = {
-  UPCOMING: "upcoming",
-  PAST: "past",
+  UPCOMING: {
+    key: "upcoming",
+    label: "Upcoming",
+  },
+  PAST: {
+    key: "past",
+    label: "Past",
+  },
 };
 
 const EVENT_KEYS = {
@@ -61,4 +67,16 @@ const EVENT_KEYS = {
   STATUS: "status",
 };
 
-export { MOCK_EVENTS, EVENT_STATUSES, EVENT_KEYS };
+const ROUTES = {
+  CREATE_EVENT: "/create-event",
+  LISTING_PAGE: "/",
+};
+
+const ACTION_MSGS = {
+  ADD_EVENT: "Event added successfully!",
+  REMOVE_EVENT: "Event removed successfully!",
+  UPDATE_EVENT: "Event updated successfully!",
+  ERROR_MSG: "Something went wrong. Please try again!",
+};
+
+export { MOCK_EVENTS, EVENT_STATUSES, EVENT_KEYS, ROUTES, ACTION_MSGS };

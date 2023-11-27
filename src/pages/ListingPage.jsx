@@ -1,26 +1,25 @@
 import { PageHeader } from "@ant-design/pro-layout";
-import { Tabs, List, Button } from "antd";
+import { Tabs, List, Button, message } from "antd";
 import { Link } from "react-router-dom";
-import { EVENT_STATUSES } from "../constants";
+import { ACTION_MSGS, EVENT_STATUSES, ROUTES } from "../constants";
 import { getFilteredEventsByKey } from "../utils/helpers";
 import { useEventContext } from "../context/EventContext";
 import EventCard from "../components/EventComponents/EventCard";
 
 const EventListingPage = () => {
   const { events, removeEvent } = useEventContext();
+  const { UPCOMING, PAST } = EVENT_STATUSES;
 
-  const upcomingEvents = getFilteredEventsByKey(
-    events,
-    EVENT_STATUSES.UPCOMING
-  );
-  const pastEvents = getFilteredEventsByKey(events, EVENT_STATUSES.PAST);
+  const upcomingEvents = getFilteredEventsByKey(events, UPCOMING.value);
+  const pastEvents = getFilteredEventsByKey(events, PAST.value);
 
   const handleDeleteEvent = (event) => {
     removeEvent(event?.id);
+    message.success(ACTION_MSGS.REMOVE_EVENT);
   };
 
   const createEventButton = (
-    <Link to="/create-event">
+    <Link to={ROUTES.CREATE_EVENT}>
       <Button type="primary">Create Event</Button>
     </Link>
   );
@@ -28,49 +27,41 @@ const EventListingPage = () => {
   const tabItems = [
     {
       key: "1",
-      label: "Upcoming",
+      label: UPCOMING.label,
       children: (
-        <List
-          dataSource={upcomingEvents}
-          renderItem={(event) => (
-            <EventCard event={event} onDeleteEvent={handleDeleteEvent} />
-          )}
-        />
+        <div className="card-row">
+          <List
+            dataSource={upcomingEvents}
+            renderItem={(event) => (
+              <EventCard event={event} onDeleteEvent={handleDeleteEvent} />
+            )}
+          />
+        </div>
       ),
     },
     {
       key: "2",
-      label: "Past",
+      label: PAST.label,
       children: (
-        <List
-          dataSource={pastEvents}
-          renderItem={(event) => (
-            <EventCard event={event} onDeleteEvent={handleDeleteEvent} />
-          )}
-        />
+        <div className="card-row">
+          <List
+            dataSource={pastEvents}
+            renderItem={(event) => (
+              <EventCard event={event} onDeleteEvent={handleDeleteEvent} />
+            )}
+          />
+        </div>
       ),
     },
   ];
 
   return (
-    <div
-      style={{
-        overflowY: "auto",
-        maxHeight: "calc(100vh - 64px)",
-        marginTop: "5rem",
-      }}
-    >
+    <div className="card-row main-container">
       <PageHeader
         title="Event Listing"
         subTitle="Explore and manage your events"
       />
-      <div
-        style={{
-          padding: "20px",
-          overflowY: "auto",
-          maxHeight: "calc(100vh - 64px)",
-        }}
-      >
+      <div className="tab-container">
         <Tabs
           defaultActiveKey="1"
           items={tabItems}

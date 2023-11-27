@@ -27,4 +27,20 @@ code {
 .form-header {
   width: 96%;
   margin: auto;
+  margin-top: 5rem;
+}
+.card-row {
+  overflow-y: auto;
+  max-height: calc(100vh - 64px);
+}
+.main-container {
+  margin-top: 5rem;
+}
+.tab-container {
+  padding: 1rem;
+}
+.header-navbar {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
 }
